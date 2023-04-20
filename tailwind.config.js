@@ -9,7 +9,17 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        "hero": "url(/images/hero-1.png)"
+      },
+      colors:{
+        "brand-blue": "#0983FF",
+        "text-color": "#2B2945",
+        "gray-color": "#E8EDE9"
+      },
+      
+    },
   },
   plugins: [],
 }
