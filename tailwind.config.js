@@ -11,7 +11,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage:{
-        "hero": "url(/images/hero-1.png)"
+        "hero": "url(/images/hero-1.png)",
+        "hero-mobile": "url(/images/hero-mobile.png)",
+
       },
       colors:{
         "brand-blue": "#0983FF",
