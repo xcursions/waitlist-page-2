@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import HeroSection from '../components/Waitlist-page/HeroSection'
+import SafeTravelSection from '../components/Waitlist-page/SafeTravelSection'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
 
       <main >
       <HeroSection />
+      <SafeTravelSection />
       </main>
 
      
