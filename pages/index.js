@@ -19,6 +19,8 @@ export default function Home() {
       <SafeTravelSection />
       <VacationSection />
       <BookHotelSection />
+      <VacationSection />
+
       
       </main>
 

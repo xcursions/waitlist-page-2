@@ -21,7 +21,7 @@ const BookHotelSection = () => {
     whileInView={'show'}
      variants={container}
     
-    className="bg-gray-color ">
+    className="bg-gray-color relative pb-12 mb-8">
      <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[70%] py-12">
      <div className="flex justify-center flex-col space-y-4">
         <motion.h4 
@@ -42,6 +42,10 @@ const BookHotelSection = () => {
             priority
         />
       </motion.div>
+     </div>
+
+     <div className="bg-brand-blue p-12 absolute -bottom-[10%] rounded-md left-[20%] right-[20%] ">
+
      </div>
     </motion.section>
   )
