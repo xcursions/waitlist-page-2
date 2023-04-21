@@ -14,7 +14,7 @@ const container = {
       }
     }
   }
-const SafeTravelSection = () => {
+const BookHotelSection = () => {
   return (
     <motion.section
     initial='hidden'
@@ -22,11 +22,12 @@ const SafeTravelSection = () => {
      variants={container}
     
     className="bg-gray-color ">
-     <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[80%] gap-6 py-12">
+     <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[80%] py-12">
      <div className="flex justify-center flex-col space-y-4">
         <motion.h4 
         variants={fadeIn("down")}
-        className="font-bold max-w-sm leading-18 text-3xl  md:text-5xl text-center md:text-start">Save & Travel On The Go</motion.h4>
+        className="font-bold max-w-sm leading-18 text-3xl  md:text-5xl text-center md:text-start">Book hotels across 
+        the globe</motion.h4>
         <motion.p variants={fadeIn("left")}  className="max-w-lg text-[#2B2945] text-justify leading-18">Automate your savings & reach your travel goals faster with our ‘pay small small’ plan. No Charges. No Penalties. Absolutely Free.</motion.p>
       </div>
 
@@ -43,7 +44,7 @@ const SafeTravelSection = () => {
       </motion.div>
      </div>
     </motion.section>
-  );
-};
+  )
+}
 
-export default SafeTravelSection;
+export default BookHotelSection
