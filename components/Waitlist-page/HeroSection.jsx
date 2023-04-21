@@ -26,7 +26,7 @@ const HeroSection = () => {
     
     min-h-[60vh]"
     >
-      <div className="m-auto w-[90%] md:w-[70%]  py-4">
+      <div className="m-auto w-[90%] md:w-[70%]  py-9">
         <nav className="py-4 flex justify-between">
           <div>
             <Image
@@ -67,9 +67,11 @@ const HeroSection = () => {
         <div className="pt-12 flex flex-col w-full  gap-4">
             <h4 className="text-white text-center md:text-start">Join Ope, Andy, and 3189 others on the waitlist</h4>
             <div className="flex md:flex-row w-full items-center flex-col gap-3">
+                <div>
                 <input className="py-3 rounded-md px-2" type="text" name="" id="" 
                 placeholder="Enter email address"
                 />
+                </div>
                 <button className="bg-brand-blue text-white px-7 rounded-md py-3 text-center">
               Join Waitlist
             </button>

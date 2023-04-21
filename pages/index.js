@@ -4,6 +4,7 @@ import HeroSection from '../components/Waitlist-page/HeroSection'
 import SafeTravelSection from '../components/Waitlist-page/SafeTravelSection'
 import VacationSection from '../components/Waitlist-page/VacactionSection'
 import BookHotelSection from '../components/Waitlist-page/BookHotelSection'
+import FaqSection from '../components/Waitlist-page/FaqSection'
 
 export default function Home() {
   return (
@@ -14,13 +15,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main >
+      <main className='overflow-hidden'>
       <HeroSection />
       <SafeTravelSection />
       <VacationSection />
       <BookHotelSection />
-      <VacationSection />
-
+      {/* <VacationSection /> */}
+      <FaqSection />
       
       </main>
 
