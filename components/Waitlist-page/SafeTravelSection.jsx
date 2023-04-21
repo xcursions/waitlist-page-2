@@ -22,7 +22,7 @@ const SafeTravelSection = () => {
      variants={container}
     
     className="bg-gray-color ">
-     <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[80%] gap-6 py-12">
+     <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[70%] gap-6 py-12">
      <div className="flex justify-center flex-col space-y-4">
         <motion.h4 
         variants={fadeIn("down")}

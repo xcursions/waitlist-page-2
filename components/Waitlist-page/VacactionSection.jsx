@@ -19,7 +19,7 @@ const VacationSection = () => {
     whileInView={'show'}
      variants={container}
     className=" ">
-    <div className="m-auto w-[90%] gap-4 flex flex-col md:flex-row justify-between md:w-[80%] py-8">
+    <div className="m-auto w-[90%] gap-4 flex flex-col md:flex-row justify-between md:w-[70%] py-8">
     <motion.div
     variants={fadeIn("left")}
     >

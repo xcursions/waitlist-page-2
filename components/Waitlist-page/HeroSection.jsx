@@ -26,7 +26,7 @@ const HeroSection = () => {
     
     min-h-[60vh]"
     >
-      <div className="m-auto w-[90%] md:w-[80%]  py-4">
+      <div className="m-auto w-[90%] md:w-[70%]  py-4">
         <nav className="py-4 flex justify-between">
           <div>
             <Image
