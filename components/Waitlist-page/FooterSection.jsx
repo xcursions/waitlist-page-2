@@ -2,6 +2,9 @@ import React from 'react'
 import Image from "next/image";
 import Logo from "../../public/images/logo-gray.png";
 import { AiFillMail } from 'react-icons/ai';
+import { LinkedinSVG } from '../../public/images/linkedin';
+import { InstagramIcon } from '../../public/images/instagram';
+import { TwitterIcon } from '../../public/images/twitter';
 const FooterSection = () => {
   return (
     <footer className='bg-gray-color '>
@@ -22,7 +25,10 @@ const FooterSection = () => {
           </div>
           <div className='flex flex-col space-y-3'>
                 <h5 className='font-bold'>Contact Info</h5>
-                <div className="icons">
+                <div className="icons flex gap-2">
+                    <LinkedinSVG />
+                    <TwitterIcon />
+                    <InstagramIcon />
 
                 </div>
                 <div className="mails flex md:flex-row flex-col items-start md:items-center gap-2">
