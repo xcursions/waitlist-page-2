@@ -48,7 +48,7 @@ const FooterSection = () => {
           </div>
         </div>
         <div className='flex items-center justify-center text-black py-3'>
-            <p>Copyright©2023 | All rights reserved.</p>
+            <p>Copyright&#169;2023 | All rights reserved.</p>
         </div>
     </footer>
   )

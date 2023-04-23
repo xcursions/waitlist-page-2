@@ -11,7 +11,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage:{
-        "hero": "url(/images/hero-1.png)",
+        "hero-1": "url(/images/hero-1.png)",
+        "hero-2": "url(/images/hero-2.png)",
+        "hero-3": "url(/images/hero-3.png)",
+        "hero-4": "url(/images/hero-4.png)",
         "hero-mobile": "url(/images/hero-mobile.png)",
 
       },
