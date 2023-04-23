@@ -74,7 +74,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                     
                    </div>
 
-                    <div className="my-3 flex justify-between">
+                    <div className="my-3 flex flex-col  gap-3 md:flex-rwo justify-between">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineTwitter className="text-xl" />
                         Twitter
