@@ -8,6 +8,7 @@ import image1 from "../../public/images/hero-1.png"
 import image2 from "../../public/images/hero-2.png"
 import image3 from "../../public/images/hero-3.png"
 import WaitListModal from "../modals/NewWaitlist";
+import Link from "next/link";
 
 
 const container = {
@@ -79,7 +80,7 @@ console.log(photo)
     initial='hidden'
     whileInView={'show'}
      variants={container}
-      className={`bg-hero-1 duration-300 transition-all   hero-mobile  bg-cover bg-center lg:h-[808px]
+      className={`bg-hero-mobile md:bg-hero-1 duration-300 transition-all   hero-mobile  bg-cover bg-center lg:h-[808px]
       bg-no-repeat relative 
       
       min-h-[60vh]`}
@@ -99,9 +100,15 @@ console.log(photo)
           </div>
 
           <ul className="text-white hidden md:flex gap-7 items-center">
-            <li>FAQ</li>
-            <li>About</li>
-            <li>Contact</li>
+            <li>
+            <Link href="#faq-section">
+              FAQ
+            {/* <a href="#faq-section">Faq</a> */}
+            </Link>
+            </li>
+            
+            <li>About Us</li>
+            {/* <li>Contact</li> */}
           </ul>
 
           <div className="md:inline-block hidden">

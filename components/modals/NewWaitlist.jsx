@@ -66,7 +66,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
 
                   <div className="mt-4 flex flex-col">
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
-                   <div className="bg-white flex-1  p-2 rounded-md ">
+                   <div className="bg-white break-words flex-1  p-2 rounded-md ">
                       <p className="text-center">Xcursions.app/claim/{email}</p>
                     </div>
                     
