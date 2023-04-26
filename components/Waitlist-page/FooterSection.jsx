@@ -8,8 +8,8 @@ import { TwitterIcon } from '../../public/images/twitter';
 const FooterSection = () => {
   return (
     <footer className='bg-gray-color '>
-        <div className='m-auto w-[90%] grid md:grid-cols-2 grid-cols-1 gap-4 lg:grid-cols-3 md:[80%] lg:[70%] py-8'>
-        <div className='flex flex-col gap-4'>
+        <div className='m-auto w-[90%] flex md:flex-row flex-col justify-evenly gap-5   md:[80%] lg:[70%] py-8'>
+        <div className='flex w-full flex-col gap-4'>
             <Image
               width={150}
               height={150}
@@ -20,10 +20,12 @@ const FooterSection = () => {
             <p className='text-justify text-text-color font-medium'>At Xcursions, we are removing barriers to having a premium travel experience. Our travel processes are timely, and are handled by experts, to give you the experience you truly deserve. Travelling just got easier!</p>
           </div>
 
-          <div className=' w-[2px] md:hidden lg:flex place-item-center  bg-brand-blue justify-center items-center'>
-            
+          <div className='w-full flex sm:hidden md:hidden lg:flex items-center justify-center'>
+            <div className='md:w-[2px] w-full h-[3px]  md:h-full bg-brand-blue'>
+
+            </div>
           </div>
-          <div className='flex flex-col space-y-3'>
+          <div className='flex w-full flex-col space-y-3'>
                 <h5 className='font-bold'>Contact Info</h5>
                 <div className="icons flex gap-2">
                     <LinkedinSVG />

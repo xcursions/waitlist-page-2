@@ -1,3 +1,9 @@
+import Hero1 from "../public/images/hero-1.png"
+import Hero2 from "../public/images/hero-2.png"
+import Hero3 from "../public/images/hero-3.png"
+import Hero4 from "../public/images/hero-4.png"
+
+
 export const faqs = [
   {
     id: 1,
@@ -31,3 +37,21 @@ export const faqs = [
       "Yes, the web app will offer the same services as our offline travel brand, vacation/tour services, travel consultations, and visa processing. It will also offer additional features and benefits such as ‘pay small small’ to make travel booking even more convenient and seamless.",
   },
 ];
+
+export const heros = [
+  {
+    id: 1,
+    Hero: Hero1
+  },
+  {
+    id: 2,
+    Hero: Hero2
+  },{
+    id: 3,
+    Hero: Hero3
+  },
+  {
+    id: 3,
+    Hero: Hero4
+  }
+]

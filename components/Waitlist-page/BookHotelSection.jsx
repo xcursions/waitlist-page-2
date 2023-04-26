@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import TravelImage from "../../public/images/travel.png";
+import TravelImage from "../../public/images/book-hotel.png";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 
@@ -51,7 +51,7 @@ const BookHotelSection = () => {
         </motion.div>
       </div>
 
-      <div className="bg-brand-blue p-4  lg:p-12 space-y-4 absolute flex flex-col items-center justify-center  lg:-bottom-[7%] rounded-md left-[10%] right-[10%] lg:left-[20%] lg:right-[20%] ">
+      <div className="bg-brand-blue p-4  lg:p-12 space-y-4 absolute flex flex-col items-center justify-center   rounded-md left-[10%] right-[10%] lg:left-[20%] lg:right-[20%] ">
         <h3 className="text-white text-center font-bold text-xl md:text-3xl">
           The Most Rewarding Way to Travel!
         </h3>

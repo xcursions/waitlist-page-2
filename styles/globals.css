@@ -20,3 +20,7 @@ html, body {
 
   border-radius: 40px;
 }
+
+.overlay{
+  z-index: 1000;
+}

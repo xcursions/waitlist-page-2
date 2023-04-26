@@ -10,7 +10,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10 " onClose={closeModal}>
+        <Dialog as="div" className="relative overlay " onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -34,7 +34,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full design max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full design max-w-md  transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-2xl flex space-y-6 flex-col font-bold leading-6 text-white "
