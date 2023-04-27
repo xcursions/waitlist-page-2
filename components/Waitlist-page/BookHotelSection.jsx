@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import TravelImage from "../../public/images/book-hotel.png";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
+import WaitListModal from "../modals/NewWaitlist";
 
 const container = {
   hidden: {},
@@ -14,14 +15,31 @@ const container = {
   },
 };
 const BookHotelSection = () => {
+ const [isOpen, setIsOpen] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
+  const [emailEmpty, setEmailEmpty] = useState(false);
+
+  const handleChange = (e) => {
+    setEmailValue(e.target.value);
+    setEmailEmpty(false);
+  };
+   function openModal() {
+    if (emailValue === "") {
+      setEmailEmpty(true);
+    } else {
+      setIsOpen(true);
+      setEmailEmpty(false);
+    }
+  }
   return (
     <motion.section
-      initial="hidden"
+      initial="visible"
       whileInView={"show"}
       variants={container}
+      id="join-waitlist"
       className="bg-gray-color relative pb-12 mb-16"
     >
-      <div className="m-auto w-[90%] flex flex-col md:flex-row justify-between md:w-[70%] py-12">
+      <div className="m-auto w-[90%] flex gap-4 flex-col md:flex-row justify-between md:w-[70%] py-12">
         <div className="flex justify-center flex-col space-y-4">
           <motion.h4
             variants={fadeIn("down")}
@@ -64,13 +82,16 @@ const BookHotelSection = () => {
           <input
             className="py-3 rounded-md px-2"
             type="text"
+             placeholder="Enter email address"
+                value={emailValue}
+                onChange={handleChange}
             
-            placeholder="Enter email address"
           />
-          <button className="border-white border-2 text-white px-7 rounded-md py-3 text-center">
+          <button onClick={openModal} className="border-white border-2 text-white px-7 rounded-md py-3 text-center">
             Join Waitlist
           </button>
         </div>
+         <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </motion.section>
   );

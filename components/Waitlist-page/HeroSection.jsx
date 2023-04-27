@@ -91,7 +91,7 @@ const HeroSection = () => {
       <Carousel />
 
       <div className="m-auto w-[90%] relative z-50 md:w-[70%]  py-9">
-        <nav className="py-4 flex justify-between">
+        <nav className="py-2 flex justify-between">
           <div>
             <Image
               width={150}
@@ -102,26 +102,21 @@ const HeroSection = () => {
             />
           </div>
 
-          <ul className="text-white hidden md:flex gap-7 items-center">
-            <li>
-              <Link href="#faq-section">
-                FAQ
-                {/* <a href="#faq-section">Faq</a> */}
-              </Link>
+          <ul className="text-white hidden justify-center md:flex gap-7 items-center">
+          <li className="hover:border-b-2 border-brand-blue">
+              <a href="#about-section">About Us</a>
+            </li>
+            <li className="hover:border-b-2 border-brand-blue">
+              <a href="#faq-section">FAQs</a>
+              
             </li>
 
-            <li>
-            <Link href="#faq-section">
-                About
-                {/* <a href="#faq-section">Faq</a> */}
-              </Link>
-            </li>
-            {/* <li>Contact</li> */}
+            
           </ul>
 
           <div className="md:inline-block hidden">
             <button className="bg-brand-blue text-white px-7 rounded-md py-2 text-center">
-              Join Waitlist
+              <a href="#join-waitlist">Join Waitlist</a>
             </button>
           </div>
 

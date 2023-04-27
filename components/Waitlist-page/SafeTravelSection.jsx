@@ -17,6 +17,7 @@ const container = {
 const SafeTravelSection = () => {
   return (
     <motion.section
+    id="about-section"
     initial='hidden'
     whileInView={'show'}
      variants={container}
