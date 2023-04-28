@@ -6,7 +6,10 @@ import { fadeIn } from "../../variants";
 
 
 const container = {
-    hidden: {},
+    hidden: {
+      
+       opacity: 0, scale: 0 
+    },
     show: {
       transition :{
         staggerChildren: 0.1,
@@ -18,7 +21,7 @@ const SafeTravelSection = () => {
   return (
     <motion.section
     id="about-section"
-    initial='hidden'
+    initial='visible'
     whileInView={'show'}
      variants={container}
     

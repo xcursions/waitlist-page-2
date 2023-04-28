@@ -33,7 +33,7 @@ const FooterSection = () => {
                     <InstagramIcon />
 
                 </div>
-                <div className="mails flex md:flex-row flex-col items-start md:items-center gap-2">
+                <div className="mails flex lg:flex-row flex-col items-start lg:items-center gap-2">
                 <div className='flex gap-2  items-center'>
                     <AiFillMail />
                     <p>admin@xcursions.ng</p>

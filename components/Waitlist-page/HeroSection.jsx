@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Logo from "../../public/images/logo.png";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import image1 from "../../public/images/hero-1.png";
@@ -10,6 +10,7 @@ import image3 from "../../public/images/hero-3.png";
 import WaitListModal from "../modals/NewWaitlist";
 import Link from "next/link";
 import Carousel from "./Carousel";
+import MobileNav from "../modals/MobileNav";
 
 const container = {
   hidden: {},
@@ -24,6 +25,7 @@ const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [emailValue, setEmailValue] = useState("");
   const [emailEmpty, setEmailEmpty] = useState(false);
+   const[toggleNav, setToggleNav] = useState(false)
   const [photo, setPhoto] = useState(1);
   function openModal() {
     if (emailValue === "") {
@@ -58,20 +60,7 @@ const HeroSection = () => {
     setEmailEmpty(false);
   };
 
-  const returnPhotoURL = () => {
-    switch (photo) {
-      case 1:
-        return "hero-1";
-      case 2:
-        return "hero-2";
-      case 3:
-        return "hero-3";
-      case 4:
-        return "hero-4";
-      default:
-        return null;
-    }
-  };
+ 
   return (
     <motion.section
       initial="visible"
@@ -90,7 +79,7 @@ const HeroSection = () => {
       <Carousel />
 
       <div className="m-auto w-[90%] relative z-50 md:w-[70%]  py-9">
-        <nav className="py-2 flex justify-between">
+        <nav className="py-2 relative flex justify-between">
           <div>
             <Image
               width={150}
@@ -119,9 +108,12 @@ const HeroSection = () => {
             </button>
           </div>
 
-          <div className="md:hidden inline-block">
-            <AiOutlineMenu className="text-white text-4xl" />
+          <div onClick={() => setToggleNav(!toggleNav)} className="md:hidden duration-300 cursor-pointer inline-block">
+            {toggleNav ? <AiOutlineClose className="text-white text-4xl" /> : <AiOutlineMenu className="text-white text-4xl" />}
           </div>
+
+          {toggleNav && <MobileNav toggleNav={toggleNav} setToggleNav={setToggleNav} />}
+
         </nav>
 
         <div className="mt-[180px]">
@@ -172,7 +164,6 @@ const HeroSection = () => {
           )}
         </div>
       </div>
-
       <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
     </motion.section>
   );
