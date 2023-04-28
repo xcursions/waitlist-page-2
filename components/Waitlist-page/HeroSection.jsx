@@ -44,7 +44,6 @@ const HeroSection = () => {
     };
   }, [photo]);
 
-  console.log(photo);
   const change = () => {
     if (photo === 5) {
       setPhoto(1);
