@@ -75,7 +75,7 @@ const HeroSection = () => {
   };
   return (
     <motion.section
-      initial="hidden"
+      initial="visible"
       whileInView={"show"}
       variants={container}
       className={`
