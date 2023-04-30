@@ -4,18 +4,21 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../../variants'
 const container = {
-    hidden: {},
-    show: {
-      transition :{
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      }
+  hidden: {
+    
+     opacity: 0, scale: 0 
+  },
+  show: {
+    transition :{
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
     }
   }
+}
 const VacationSection = () => {
   return (
     <motion.section 
-    initial='hidden'
+    initial='visible'
     whileInView={'show'}
      variants={container}
     className=" ">
