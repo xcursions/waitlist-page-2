@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import TravelImage from "../../public/images/book-hotel.png";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import WaitListModal from "../modals/NewWaitlist";
+import { useHasBeenViewed } from "../../hooks/UseHasBeenViewed";
 
 const container = {
-  hidden: {},
+  hidden: {
+  },
+  
   show: {
     transition: {
       staggerChildren: 0.1,
@@ -33,15 +36,18 @@ const BookHotelSection = () => {
   }
   return (
     <motion.section
-      initial="visible"
+      initial="hidden"
       whileInView={"show"}
       variants={container}
+      viewport={{ once: true }}
       id="join-waitlist"
+      
       className="bg-gray-color relative pb-12 mb-16"
     >
       <div className="m-auto w-[90%] flex gap-4 flex-col md:flex-row justify-between md:w-[70%] py-12">
         <div className="flex justify-center flex-col space-y-4">
           <motion.h4
+          
             variants={fadeIn("down")}
             className="font-bold max-w-md leading-18 text-3xl  md:text-5xl text-center md:text-start"
           >
@@ -94,6 +100,7 @@ const BookHotelSection = () => {
          <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </motion.section>
+
   );
 };
 

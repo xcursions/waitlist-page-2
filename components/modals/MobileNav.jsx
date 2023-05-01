@@ -14,14 +14,15 @@ const container = {
 const MobileNav = ({setToggleNav, toggleNav}) => {
   return (
     <motion.div  
-    initial='visible'
+    initial='hidden'
+    viewport={{ once: true }}
     whileInView={'show'}
-    //  variants={container}
+     variants={container}
     
      
     className='absolute p-9 bg-white rounded-md z-50 md:hidden right-0 top-[80%]'>
          <ul
-        //  variants={fadeIn("down")}
+        variants={fadeIn("down")}
          className="text-brand-blue justify-center space-y-5 md:flex gap-7 items-center">
           <li 
           variants={fadeIn("down")}

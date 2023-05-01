@@ -15,6 +15,8 @@ export const fadeIn = (direction) => {
           duration: 1.4,
           ease: [0.25, 0.25, 0.25, 0.75],
         },
+        
       },
+     
     };
   };

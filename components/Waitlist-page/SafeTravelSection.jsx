@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TravelImage from "../../public/images/travel.png"
 import { motion } from "framer-motion";
@@ -8,7 +8,7 @@ import { fadeIn } from "../../variants";
 const container = {
     hidden: {
       
-       opacity: 0, scale: 0 
+       
     },
     show: {
       transition :{
@@ -18,11 +18,13 @@ const container = {
     }
   }
 const SafeTravelSection = () => {
+   
   return (
     <motion.section
     id="about-section"
-    initial='visible'
+    initial='hidden'
     whileInView={'show'}
+    viewport={{ once: true }}
      variants={container}
     
     className="bg-gray-color ">

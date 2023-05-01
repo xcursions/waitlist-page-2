@@ -5,8 +5,6 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '../../variants'
 const container = {
   hidden: {
-    
-     opacity: 0, scale: 0 
   },
   show: {
     transition :{
@@ -18,9 +16,11 @@ const container = {
 const VacationSection = () => {
   return (
     <motion.section 
-    initial='visible'
+    initial='hidden'
+    
     whileInView={'show'}
-     variants={container}
+    variants={container}
+    viewport={{ once: true }}
     className=" ">
     <div className="m-auto w-[90%] gap-4 flex flex-col md:flex-row justify-between md:w-[70%] py-8">
     <motion.div
