@@ -5,10 +5,32 @@ import { AiFillMail } from 'react-icons/ai';
 import { LinkedinSVG } from '../../public/images/linkedin';
 import { InstagramIcon } from '../../public/images/instagram';
 import { TwitterIcon } from '../../public/images/twitter';
+import { motion } from "framer-motion";
+import { fadeIn } from "../../variants";
+const container = {
+  hidden: {
+    
+     
+  },
+  show: {
+    transition :{
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    }
+  }
+}
 const FooterSection = () => {
   return (
-    <footer className='bg-gray-color '>
-        <div className='m-auto w-[90%] flex md:flex-row flex-col justify-evenly gap-5   md:[80%] lg:[70%] py-8'>
+    <motion.footer
+    initial="hidden"
+    viewport={{ once: true }}
+
+      whileInView={"show"}
+      variants={container}
+    className='bg-gray-color '>
+        <motion.div
+        variants={fadeIn("up")}
+        className='m-auto w-[90%] flex md:flex-row flex-col justify-evenly gap-5   md:[80%] lg:[70%] py-8'>
         <div className='flex w-full flex-col gap-4'>
             <Image
               width={150}
@@ -48,11 +70,13 @@ const FooterSection = () => {
                 </div>
 
           </div>
-        </div>
-        <div className='flex items-center justify-center text-black py-3'>
+        </motion.div>
+        <motion.div 
+        variants={fadeIn("up")}
+        className='flex items-center justify-center text-black py-3'>
             <p>Copyright&#169;2023 | All rights reserved.</p>
-        </div>
-    </footer>
+        </motion.div>
+    </motion.footer>
   )
 }
 
