@@ -41,17 +41,21 @@ export const faqs = [
 export const heros = [
   {
     id: 1,
-    Hero: Hero1
+    Hero: Hero1,
+    src: "https://res.cloudinary.com/waleszn/image/upload/v1683437805/hero-new_ykye8l.png"
   },
   {
     id: 2,
-    Hero: Hero2
+    Hero: Hero2,
+    src: "https://res.cloudinary.com/waleszn/image/upload/v1683472836/hero-2_dauiij.png"
   },{
     id: 3,
-    Hero: Hero3
+    Hero: Hero3,
+    src: "https://res.cloudinary.com/waleszn/image/upload/v1683472838/hero-3_iu2gga.png"
   },
   {
     id: 3,
-    Hero: Hero4
+    Hero: Hero4,
+    src: "https://res.cloudinary.com/waleszn/image/upload/v1683472644/hero-4_sz2hyq.png"
   }
 ]
