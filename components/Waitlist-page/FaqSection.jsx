@@ -26,7 +26,7 @@ const FaqSection = () => {
     id='faq-section' className='mt-[200px] md:mt-[150px] duration-300 transition-all m-auto w-[90%] py-9 md:w-[70%]'>
       <motion.h4
       variants={fadeIn("right")}
-      className='text-text-color py-3 font-bold text-2xl md:text-3xl'>Frequently asked questions</motion.h4>
+      className='text-text-color py-3 md:py-4 lg:py-6 font-bold text-2xl md:text-3xl'>Frequently asked questions</motion.h4>
    <motion.div className='py-8'>
     {faqs.map((faq) => (
      <SingleFAQ faq={faq} />

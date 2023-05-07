@@ -60,7 +60,9 @@ const HeroSection = () => {
     setEmailEmpty(false);
   };
 
- 
+  // xl:bg-none
+  //     lg:bg-hero-1
+  //     bg-hero-mobile
   return (
     <motion.section
       initial="hidden"
@@ -69,9 +71,8 @@ const HeroSection = () => {
       whileInView={"show"}
       variants={container}
       className={`
-      xl:bg-none
-      lg:bg-hero-1
-      bg-hero-mobile
+      bg-[url('https://res.cloudinary.com/waleszn/image/upload/v1683438649/hero-mobile_wwzvet.png')]
+      md:bg-[url('https://res.cloudinary.com/waleszn/image/upload/v1683437805/hero-new_ykye8l.png')]
       
       duration-300 transition-all     bg-cover bg-center lg:h-[808px]
       bg-no-repeat relative 
