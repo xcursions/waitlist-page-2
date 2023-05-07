@@ -55,7 +55,7 @@ const BookHotelSection = () => {
           </motion.h4>
           <motion.p
             variants={fadeIn("left")}
-            className="max-w-lg text-[#2B2945] text-justify leading-18"
+            className="max-w-lg text-[#2B2945] text-center md:text-justify leading-18"
           >
             Hotel booking hassles are old news here. Find your next stay with
             Xcursions. From hotels to short lets, to apartments for all your

@@ -42,7 +42,7 @@ const VacationSection = () => {
        className="font-bold max-w-md leading-18 text-3xl  md:text-5xl text-center md:text-start">Access Vacation Options in One Click</motion.h4>
        <motion.p
        variants={fadeIn("up")}
-       className="max-w-lg text-[#2B2945] text-justify leading-18">With our wide range of budget-friendly vacation deals, you will be exploring the world without breaking the bank. No stress. Just maximum enjoyment!</motion.p>
+       className="max-w-lg text-[#2B2945] text-center md:text-justify leading-18">With our wide range of budget-friendly vacation deals, you will be exploring the world without breaking the bank. No stress. Just maximum enjoyment!</motion.p>
      </div>
 
     
