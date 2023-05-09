@@ -9,7 +9,6 @@ import WaitListModal from "../modals/NewWaitlist";
 import Link from "next/link";
 import Carousel from "./Carousel";
 import MobileNav from "../modals/MobileNav";
-import SimpleForm from "./CustomForm";
 
 const container = {
   hidden: {},
