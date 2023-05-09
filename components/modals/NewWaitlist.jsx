@@ -2,10 +2,12 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { AiFillFacebook, AiOutlineClose, AiOutlineTwitter, AiOutlineWhatsApp } from "react-icons/ai";
 import { TwitterIcon } from "../../public/images/twitter";
+import Link from "next/link";
 export default function WaitListModal({ isOpen, email, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
   }
+
 
   return (
     <>
@@ -67,7 +69,8 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                   <div className="mt-4 flex flex-col">
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
                    <div className="bg-white break-words flex-1  p-2 rounded-md ">
-                      <p className="text-center">Xcursions.app/claim/{email}</p>
+                      {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
+                      <p>Xcursions.ng</p>
                     </div>
                     
                       <button className="bg-white px-4 py-2 rounded-md">Copy</button>
@@ -75,17 +78,21 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                    </div>
 
                     <div className="my-3 flex flex-col  gap-3 md:flex-rwo justify-between">
+                      <a href="https://xcursions.ng" target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineTwitter className="text-xl" />
                         Twitter
                       </div>
-                      <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
-                        <AiFillFacebook className="text-xl" />
-                        Facebook</div>
+                      </a>
+                      <a href="https://xcursions.ng/" target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineWhatsApp className="text-xl" />
                         Whatsapp
                       </div>
+
+                      </a>
+
+
                     </div>
                   </div>
                 </Dialog.Panel>

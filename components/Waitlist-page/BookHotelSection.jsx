@@ -96,7 +96,7 @@ const BookHotelSection = () => {
           e.preventDefault();
           handleSubmit(fields);
           
-          if(success){
+          if(success && !loading){
             setIsOpen(true)
           }
         }}

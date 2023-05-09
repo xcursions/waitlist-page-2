@@ -141,7 +141,7 @@ const HeroSection = () => {
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit(fields);
-              if(success){
+              if(success && !loading){
                 setIsOpen(true)
               }
             }}
