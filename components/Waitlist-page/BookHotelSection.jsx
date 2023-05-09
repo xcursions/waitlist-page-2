@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import WaitListModal from "../modals/NewWaitlist";
 import { useHasBeenViewed } from "../../hooks/UseHasBeenViewed";
+import { useMailChimpForm } from "use-mailchimp-form";
 
 const container = {
   hidden: {
@@ -17,11 +18,18 @@ const container = {
     },
   },
 };
+const url = "https://xcursions.us21.list-manage.com/subscribe/post?u=ec111fee6499d391c81dd7914&amp;id=a539b502a7&amp;f_id=004286e1f0";
 const BookHotelSection = () => {
  const [isOpen, setIsOpen] = useState(false);
   const [emailValue, setEmailValue] = useState("");
   const [emailEmpty, setEmailEmpty] = useState(false);
-
+ const {
+    loading,
+    error,
+    success,
+    message,
+    handleSubmit
+  } = useMailChimpForm(url);
   const handleChange = (e) => {
     setEmailValue(e.target.value);
     setEmailEmpty(false);
@@ -82,21 +90,38 @@ const BookHotelSection = () => {
         <p className="text-white text-center text-sm">
           Join waitlist to gain early access when we launch the webapp
         </p>
-
-         <div className="flex md:flex-row w-full items-center justify-center flex-col gap-3">
+      <div>
+         <form 
+         
+         onSubmit={event => {
+              event.preventDefault();
+              handleSubmit(emailValue);
+              if(success){
+                openModal()
+              }
+            }}
+         className="flex md:flex-row w-full items-center justify-center flex-col gap-3">
           
           <input
-            className="py-3 rounded-md px-2"
-            type="text"
-             placeholder="Enter email address"
+           className="py-3 rounded-md px-2"
+                type="text"
+                name=""
+                id="EMAIL"
+                placeholder="Enter email address"
                 value={emailValue}
                 onChange={handleChange}
-            
           />
-          <button onClick={openModal} className="border-white border-2 text-white px-7 rounded-md py-3 text-center">
-            Join Waitlist
+          <button 
+          // onClick={openModal} 
+          className="border-white border-2 text-white px-7 rounded-md py-3 text-center">
+            {loading ? "Loading" : "Join Waitlist"}
           </button>
-        </div>
+          
+        </form>
+        {error && <div className="text-white text-sm">Failed to join now, please try again later</div>}
+      </div>
+        
+          
          <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </motion.section>

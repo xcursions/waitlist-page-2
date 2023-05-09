@@ -60,7 +60,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
 
                     </div>
 
-                    <p>3,191 people are ahead of you</p>
+                    {/* <p>3,191 people are ahead of you</p> */}
                     <p>The more you share the sooner you&apos;ll get access</p>
                   </div>
 

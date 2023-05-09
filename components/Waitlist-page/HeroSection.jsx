@@ -4,13 +4,12 @@ import Logo from "../../public/images/logo.png";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
-import image1 from "../../public/images/hero-1.png";
-import image2 from "../../public/images/hero-2.png";
-import image3 from "../../public/images/hero-3.png";
+import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import WaitListModal from "../modals/NewWaitlist";
 import Link from "next/link";
 import Carousel from "./Carousel";
 import MobileNav from "../modals/MobileNav";
+import SimpleForm from "./CustomForm";
 
 const container = {
   hidden: {},
@@ -21,7 +20,17 @@ const container = {
     },
   },
 };
+
+const url = "https://xcursions.us21.list-manage.com/subscribe/post?u=ec111fee6499d391c81dd7914&amp;id=a539b502a7&amp;f_id=004286e1f0";
 const HeroSection = () => {
+
+  const {
+    loading,
+    error,
+    success,
+    message,
+    handleSubmit
+  } = useMailChimpForm(url);
   const [isOpen, setIsOpen] = useState(false);
   const [emailValue, setEmailValue] = useState("");
   const [emailEmpty, setEmailEmpty] = useState(false);
@@ -36,24 +45,7 @@ const HeroSection = () => {
     }
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      change();
-    }, 10000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [photo]);
-
-  const change = () => {
-    if (photo === 5) {
-      setPhoto(1);
-      return;
-    }
-
-    setPhoto((prev) => prev + 1);
-  };
+ 
 
   const handleChange = (e) => {
     setEmailValue(e.target.value);
@@ -74,13 +66,13 @@ const HeroSection = () => {
       className={`
       bg-[url('https://res.cloudinary.com/waleszn/image/upload/v1683438649/hero-mobile_wwzvet.png')]
       md:bg-[url('https://res.cloudinary.com/waleszn/image/upload/v1683437805/hero-new_ykye8l.png')]
-      xl:bg-none
+      
       duration-300 transition-all     bg-cover bg-center lg:h-[808px]
       bg-no-repeat relative 
       
       min-h-[60vh]`}
     >
-      <Carousel />
+      {/* <Carousel /> */}
 
       <div className="m-auto w-[90%] relative z-50 md:w-[70%]  py-9">
         <nav className="py-2 relative flex justify-between">
@@ -140,32 +132,47 @@ const HeroSection = () => {
 
         <div className="pt-12 flex flex-col w-full duration-300 transition-all  gap-4">
           <h4 className="text-white text-center md:text-start">
-            Join Ope, Andy, and 3189 others on the waitlist
+            Join Ope, Andy, and 3184 others on the waitlist
           </h4>
-          <div className="flex md:flex-row w-full items-center flex-col gap-3">
-            <div>
+          <div className="">
+            <form
+            className="flex md:flex-row w-full items-center flex-col gap-3"
+            onSubmit={event => {
+              event.preventDefault();
+              handleSubmit(emailValue);
+              if(success){
+                openModal()
+              }
+            }}
+            >
               <input
                 className="py-3 rounded-md px-2"
                 type="text"
                 name=""
-                id=""
+                id="EMAIL"
                 placeholder="Enter email address"
                 value={emailValue}
                 onChange={handleChange}
               />
-            </div>
             <button
-              onClick={openModal}
+            // type="submit"
+              // onClick={openModal}
               className="bg-brand-blue text-white px-7 rounded-md py-3 text-center"
             >
-              Join Waitlist
+              {loading ? "Loading" : "Join Waitlist"}
             </button>
+            </form>
+        
           </div>
-          {emailEmpty ? (
-            <h3 className="text-red-500">Please enter a valid email</h3>
+          {error ? (
+            <h3 className="text-red-500">{error}</h3>
           ) : (
             ""
           )}
+          {loading && "submitting"}
+          {error && <div className="text-white">Failed to join now, please try again later</div>}
+      {success && <div className="text-white">{message}</div>}
+          
         </div>
       </div>
       <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
