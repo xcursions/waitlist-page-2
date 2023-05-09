@@ -168,7 +168,7 @@ const HeroSection = () => {
           ) : (
             ""
           )}
-          {loading && "submitting"}
+          
           {error && <div className="text-white">Failed to join now, please try again later</div>}
       {success && <div className="text-white">{message}</div>}
           
