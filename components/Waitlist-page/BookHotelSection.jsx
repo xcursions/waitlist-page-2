@@ -4,8 +4,7 @@ import TravelImage from "../../public/images/book-hotel.png";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 import WaitListModal from "../modals/NewWaitlist";
-import { useHasBeenViewed } from "../../hooks/UseHasBeenViewed";
-import { useMailChimpForm } from "use-mailchimp-form";
+import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 
 const container = {
   hidden: {
@@ -30,10 +29,10 @@ const BookHotelSection = () => {
     message,
     handleSubmit
   } = useMailChimpForm(url);
-  const handleChange = (e) => {
-    setEmailValue(e.target.value);
-    setEmailEmpty(false);
-  };
+
+  const { fields, handleFieldChange } = useFormFields({
+    EMAIL: "",
+  });
    function openModal() {
     if (emailValue === "") {
       setEmailEmpty(true);
@@ -93,13 +92,14 @@ const BookHotelSection = () => {
       <div>
          <form 
          
-         onSubmit={event => {
-              event.preventDefault();
-              handleSubmit(emailValue);
-              if(success){
-                openModal()
-              }
-            }}
+         onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(fields);
+          
+          if(success){
+            setIsOpen(true)
+          }
+        }}
          className="flex md:flex-row w-full items-center justify-center flex-col gap-3">
           
           <input
@@ -108,8 +108,8 @@ const BookHotelSection = () => {
                 name=""
                 id="EMAIL"
                 placeholder="Enter email address"
-                value={emailValue}
-                onChange={handleChange}
+                value={fields.EMAIL}
+                onChange={handleFieldChange}
           />
           <button 
           // onClick={openModal} 
@@ -118,11 +118,11 @@ const BookHotelSection = () => {
           </button>
           
         </form>
-        {error && <div className="text-white text-sm">Failed to join now, please try again later</div>}
+        {error && <div className="text-white text-sm">{message}</div>}
       </div>
         
           
-         <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
+         <WaitListModal email={fields.EMAIL} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </motion.section>
 

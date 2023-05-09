@@ -44,7 +44,9 @@ const HeroSection = () => {
     }
   }
 
- 
+  const { fields, handleFieldChange } = useFormFields({
+    EMAIL: "",
+  });
 
   const handleChange = (e) => {
     setEmailValue(e.target.value);
@@ -131,16 +133,16 @@ const HeroSection = () => {
 
         <div className="pt-12 flex flex-col w-full duration-300 transition-all  gap-4">
           <h4 className="text-white text-center md:text-start">
-            Join Ope, Andy, and 3184 others on the waitlist
+            Join over 500+ people on the waitlist
           </h4>
           <div className="">
             <form
             className="flex md:flex-row w-full items-center flex-col gap-3"
-            onSubmit={event => {
-              event.preventDefault();
-              handleSubmit(emailValue);
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(fields);
               if(success){
-                openModal()
+                setIsOpen(true)
               }
             }}
             >
@@ -150,8 +152,8 @@ const HeroSection = () => {
                 name=""
                 id="EMAIL"
                 placeholder="Enter email address"
-                value={emailValue}
-                onChange={handleChange}
+                value={fields.EMAIL}
+          onChange={handleFieldChange}
               />
             <button
             // type="submit"
@@ -163,18 +165,14 @@ const HeroSection = () => {
             </form>
         
           </div>
-          {error ? (
-            <h3 className="text-red-500">{error}</h3>
-          ) : (
-            ""
-          )}
+         
           
-          {error && <div className="text-white">Failed to join now, please try again later</div>}
-      {success && <div className="text-white">{message}</div>}
+          {error && <div className="text-white">{message}</div>}
+      {/* {success && <div className="text-white">{message}</div>} */}
           
         </div>
       </div>
-      <WaitListModal email={emailValue} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <WaitListModal email={fields.EMAIL} isOpen={isOpen} setIsOpen={setIsOpen} />
     </motion.section>
   );
 };
