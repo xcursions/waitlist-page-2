@@ -32,8 +32,8 @@ const SafeTravelSection = () => {
      <div className="flex justify-center flex-col space-y-4">
         <motion.h4 
         variants={fadeIn("down")}
-        className="font-bold max-w-sm leading-18 text-3xl  md:text-5xl text-center md:text-start">Save & Travel On The Go</motion.h4>
-        <motion.p variants={fadeIn("left")}  className="max-w-lg text-[#2B2945] text-center md:text-justify leading-18">Automate your savings & reach your travel goals faster with our &apos;pay small small&apos; plan. No Charges. No Penalties. Absolutely Free.</motion.p>
+        className="font-bold max-w-xl text-3xl  md:text-5xl text-center md:text-start">Save & Travel On The Go</motion.h4>
+        <motion.p variants={fadeIn("left")}  className="max-w-lg text-[#2B2945] text-center md:text-justify leading-18">Automate your savings & reach your travel goals faster with our  &ldquo;pay small small&ldquo; plan. No Charges. No Penalties. Absolutely Free.</motion.p>
       </div>
 
       <motion.div

@@ -11,7 +11,7 @@ const SingleFAQ = ({faq}) => {
           </div>
           {
             toggleFaq && (<div className='absolut bg-white'>
-                <p className='leading-18 text-justify'>{faq.answer}</p>
+                <p className='leading-18 text-sm text-left md:text-justify'>{faq.answer}</p>
                 </div>
             )
           }

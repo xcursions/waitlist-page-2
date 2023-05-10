@@ -126,28 +126,28 @@ const HeroSection = () => {
               className="text-white text-xl text-center lg:text-start max-w-[700px]"
             >
               Find your dream holiday destinations, get great hotel deals, and
-              save for your next travel, all in one space
+              save for your next travel, all in one space.
             </motion.p>
           </div>
         </div>
 
-        <div className="pt-12 flex flex-col w-full duration-300 transition-all  gap-4">
+        <div className="pt-12 flex flex-col  duration-300 transition-all  gap-4">
           <h4 className="text-white text-center md:text-start">
             Join over 500+ people on the waitlist
           </h4>
-          <div className="">
+          <div className="max-w-3xl">
             <form
-            className="flex md:flex-row w-full items-center flex-col gap-3"
+            className="flex md:flex-row items-center flex-col gap-3"
             onSubmit={(e) => {
               e.preventDefault();
               handleSubmit(fields);
-              if(success && !loading){
+              if(!loading){
                 setIsOpen(true)
               }
             }}
             >
               <input
-                className="py-3 rounded-md px-2"
+                className="w-full py-3 rounded-md px-2"
                 type="text"
                 name=""
                 id="EMAIL"
@@ -157,8 +157,7 @@ const HeroSection = () => {
               />
             <button
             // type="submit"
-              // onClick={openModal}
-              className="bg-brand-blue text-white px-7 rounded-md py-3 text-center"
+              className="bg-brand-blue  md:w-2/5 text-white px-7 rounded-md py-3 text-center"
             >
               {loading ? "Loading" : "Join Waitlist"}
             </button>
@@ -168,7 +167,6 @@ const HeroSection = () => {
          
           
           {error && <div className="text-white">{message}</div>}
-      {/* {success && <div className="text-white">{message}</div>} */}
           
         </div>
       </div>

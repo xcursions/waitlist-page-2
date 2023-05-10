@@ -1,11 +1,18 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { AiFillFacebook, AiOutlineClose, AiOutlineTwitter, AiOutlineWhatsApp } from "react-icons/ai";
+
 import { TwitterIcon } from "../../public/images/twitter";
 import Link from "next/link";
 export default function WaitListModal({ isOpen, email, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
+  }
+  const [buttonText, setButtonText] = useState("Copy");
+  const CopyLink = (text) =>{
+    navigator.clipboard.writeText(text)
+    setButtonText("Copied!"); // update button text to indicate copied
+    setTimeout(() => setButtonText("Copy"), 3000); // change button text back to "Copy" after 3 seconds
   }
 
 
@@ -36,7 +43,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full design max-w-md  transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full design max-w-lg  transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-2xl flex space-y-6 flex-col font-bold leading-6 text-white "
@@ -70,21 +77,23 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
                    <div className="bg-white break-words flex-1  p-2 rounded-md ">
                       {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
-                      <p>Xcursions.ng</p>
+                      <p className="text-center text-sm break-words line-clamp-2">Xcursions.ng/ref_email={email}</p>
                     </div>
                     
-                      <button className="bg-white px-4 py-2 rounded-md">Copy</button>
+                      <button
+                      onClick={() =>CopyLink(`Xcursions.ng/ref_email=${email}`)}
+                       className="bg-white px-4 py-2 rounded-md">{buttonText}</button>
                     
                    </div>
 
                     <div className="my-3 flex flex-col  gap-3 md:flex-rwo justify-between">
-                      <a href="https://xcursions.ng" target="_blank">
+                      <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fxcursion.ng&text=I%20just%20joined%20Xcursion%20waitlist%2C%20you%20can%20also%20join%20using%20the%20link" target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineTwitter className="text-xl" />
                         Twitter
                       </div>
                       </a>
-                      <a href="https://xcursions.ng/" target="_blank">
+                      <a href="https://web.whatsapp.com/send?text=www.google.com" target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineWhatsApp className="text-xl" />
                         Whatsapp

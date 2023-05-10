@@ -22,7 +22,7 @@ const VacationSection = () => {
     variants={container}
     viewport={{ once: true }}
     className=" ">
-    <div className="m-auto w-[90%] gap-4 flex flex-col md:flex-row justify-between md:w-[70%] py-8">
+    <div className="m-auto w-[90%] gap-8 flex flex-col-reverse md:flex-row justify-between md:w-[70%] py-8">
     <motion.div
     variants={fadeIn("left")}
     >
@@ -39,7 +39,7 @@ const VacationSection = () => {
     <div className="flex justify-center flex-col space-y-4">
        <motion.h4
        variants={fadeIn("down")}
-       className="font-bold max-w-md leading-18 text-3xl  md:text-5xl text-center md:text-start">Access Vacation Options in One Click</motion.h4>
+       className="font-bold max-w-xl text-3xl  md:text-5xl text-center md:text-start">Access Vacation Options in One Click</motion.h4>
        <motion.p
        variants={fadeIn("up")}
        className="max-w-lg text-[#2B2945] text-center md:text-justify leading-18">With our wide range of budget-friendly vacation deals, you will be exploring the world without breaking the bank. No stress. Just maximum enjoyment!</motion.p>

@@ -47,9 +47,9 @@ const BookHotelSection = () => {
       whileInView={"show"}
       variants={container}
       viewport={{ once: true }}
-      id="join-waitlist"
       
-      className="bg-gray-color relative pb-12 mb-16"
+      
+      className="bg-gray-color  relative pb-12 mb-16"
     >
       <div className="m-auto w-[90%] flex gap-4 flex-col md:flex-row justify-between md:w-[70%] py-12">
         <div className="flex justify-center flex-col space-y-4">
@@ -58,7 +58,7 @@ const BookHotelSection = () => {
             variants={fadeIn("down")}
             className="font-bold max-w-md leading-18 text-3xl  md:text-5xl text-center md:text-start"
           >
-            Book hotels across the globe
+            Book Hotels Across the Globe
           </motion.h4>
           <motion.p
             variants={fadeIn("left")}
@@ -82,28 +82,30 @@ const BookHotelSection = () => {
         </motion.div>
       </div>
 
-      <div className="bg-brand-blue p-4  lg:p-12 space-y-4 absolute flex flex-col items-center justify-center   rounded-md sm:left-[10%] left-4 right-4 sm:right-[10%] lg:left-[20%] lg:right-[20%] ">
+      <div  id="join-waitlist" className="bg-brand-blue p-4  lg:p-12  absolute     rounded-md sm:left-[10%] left-4 right-4 sm:right-[10%] lg:left-[20%] lg:right-[20%] ">
+        <div className="w-full items-center justify-center flex flex-col space-y-4">
         <h3 className="text-white text-center font-bold text-xl md:text-3xl">
           The Most Rewarding Way to Travel!
         </h3>
         <p className="text-white text-center text-sm">
-          Join waitlist to gain early access when we launch the webapp
+          Join waitlist to gain early access when we launch the webapp.
         </p>
-      <div>
+      <div 
+      className="">
          <form 
          
          onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(fields);
           
-          if(success && !loading){
+          if(!loading){
             setIsOpen(true)
           }
         }}
-         className="flex md:flex-row w-full items-center justify-center flex-col gap-3">
+         className="flex md:flex-row  items-center max-w-5xl justify-center flex-col gap-3">
           
           <input
-           className="py-3 rounded-md px-2"
+           className="py-3 max-w-lg w-[300px] md:w-[390px] rounded-md px-2"
                 type="text"
                 name=""
                 id="EMAIL"
@@ -120,6 +122,7 @@ const BookHotelSection = () => {
         </form>
         {error && <div className="text-white text-sm">{message}</div>}
       </div>
+        </div>
         
           
          <WaitListModal email={fields.EMAIL} isOpen={isOpen} setIsOpen={setIsOpen} />
