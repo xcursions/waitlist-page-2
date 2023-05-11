@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div >
       <Head>
-        <title>Waitinglist Page</title>
+        <title>Xcursions</title>
         <meta name="description" content="Travel, Discover, Explore" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
