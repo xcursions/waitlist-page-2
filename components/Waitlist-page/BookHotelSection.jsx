@@ -97,15 +97,15 @@ const BookHotelSection = () => {
          onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(fields);
-          
-          if(!loading){
+        
+          if(!loading  && fields.EMAIL.length > 0){
             setIsOpen(true)
           }
         }}
          className="flex md:flex-row  items-center max-w-5xl justify-center flex-col gap-3">
           
           <input
-           className="py-3 max-w-lg w-[300px] md:w-[390px] rounded-md px-2"
+           className="py-3 max-w-lg w-[280px] md:w-[390px] rounded-md px-2"
                 type="text"
                 name=""
                 id="EMAIL"
