@@ -6,7 +6,7 @@ const SingleFAQ = ({faq}) => {
   return (
     <div onClick={() => setToggleFaq(!toggleFaq)} className=' cursor-pointer relative duration-300 '>
           <div className='flex items-center rounded-md my-3 px-3 py-5 bg-[#E8EDE9] justify-between' >
-          <h3 className='text-text-color text-lg font-bold'>{faq.question}</h3>
+          <h3 className='text-text-color text-md max-w-[250px] md:max-w-sm font-bold'>{faq.question}</h3>
             {toggleFaq ? <AiOutlineMinus className='text-text-color font-bold text-xl' /> : <AiOutlinePlus className='text-text-color font-bold text-xl' /> }
           </div>
           {

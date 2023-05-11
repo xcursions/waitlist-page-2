@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=''>
+      <main className='overflow-hidde md:overflow-visible'>
       <HeroSection />
       <SafeTravelSection />
       <VacationSection />

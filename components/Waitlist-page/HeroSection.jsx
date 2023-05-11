@@ -133,7 +133,7 @@ const HeroSection = () => {
 
         <div className="pt-12 flex flex-col  duration-300 transition-all  gap-4">
           <h4 className="text-white text-center md:text-start">
-            Join over 500+ people on the waitlist
+            Join over 3500+ people on the waitlist
           </h4>
           <div className="max-w-3xl">
             <form
