@@ -123,7 +123,7 @@ const HeroSection = () => {
             </motion.h3>
             <motion.p
               variants={fadeIn("left")}
-              className="text-white text-xl text-center lg:text-start max-w-[700px]"
+              className="text-white text-md text-center lg:text-start max-w-[700px]"
             >
               Find your dream holiday destinations, get great hotel deals, and
               save for your next travel, all in one space.
