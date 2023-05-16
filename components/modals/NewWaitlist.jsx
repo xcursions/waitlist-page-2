@@ -44,7 +44,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full design max-w-lg  transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full design max-w-xl  transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-2xl flex space-y-6 flex-col font-bold leading-6 text-white "
@@ -78,7 +78,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
                    <div className="bg-white break-words flex-1  p-2 rounded-md ">
                       {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
-                      <p className="text-center text-sm break-words line-clamp-2">{`https://xcursions.ng/ref_email=${email}`}</p>
+                      <p className="text-center text-sm break-words line-clamp-3">{`https://xcursions.ng/ref_email=${email}`}</p>
                     </div>
                     
                       <button
@@ -94,7 +94,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                         Twitter
                       </div>
                       </a>
-                      <a href="whatsapp://send?text=I just joined Xcursion waitlist, you can also join using the link https://xcursion.ng" target="_blank">
+                      <a href={`whatsapp://send?text=I just joined Xcursion waitlist, you can also join using the link https://xcursions.ng/ref_email=${email}`} target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineWhatsApp className="text-xl" />
                         Whatsapp
