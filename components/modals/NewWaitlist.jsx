@@ -14,6 +14,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
     setButtonText("Copied!"); // update button text to indicate copied
     setTimeout(() => setButtonText("Copy"), 3000); // change button text back to "Copy" after 3 seconds
   }
+  const ShareUrl = "https://xcursions.ng/ref_email"
 
 
   return (
@@ -77,11 +78,11 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
                    <div className="bg-white break-words flex-1  p-2 rounded-md ">
                       {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
-                      <p className="text-center text-sm break-words line-clamp-2">Xcursions.ng/ref_email={email}</p>
+                      <p className="text-center text-sm break-words line-clamp-2">{`https://xcursions.ng/ref_email=${email}`}</p>
                     </div>
                     
                       <button
-                      onClick={() =>CopyLink(`Xcursions.ng/ref_email=${email}`)}
+                      onClick={() =>CopyLink(`https://xcursions.ng/ref_email=${email}`)}
                        className="bg-white px-4 py-2 rounded-md">{buttonText}</button>
                     
                    </div>
@@ -93,7 +94,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                         Twitter
                       </div>
                       </a>
-                      <a href="https://web.whatsapp.com/send?text=www.google.com" target="_blank">
+                      <a href="whatsapp://send?text=I just joined Xcursion waitlist, you can also join using the link https://xcursion.ng" target="_blank">
                       <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
                         <AiOutlineWhatsApp className="text-xl" />
                         Whatsapp
