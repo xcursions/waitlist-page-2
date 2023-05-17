@@ -78,7 +78,7 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                    <div className="flex justify-between gap-3 md:flex-row flex-col">
                    <div className="bg-white break-words flex-1  p-2 rounded-md ">
                       {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
-                      <p className="text-center text-sm break-words line-clamp-3">{`https://xcursions.ng/ref_email=${email}`}</p>
+                      <p className="text-center text-sm break-words line-clamp-3">{`https://xcursions.ng/?ref_email=${email}`}</p>
                     </div>
                     
                       <button
@@ -102,6 +102,8 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
 
                       </a>
 
+                     
+                     
 
                     </div>
                   </div>

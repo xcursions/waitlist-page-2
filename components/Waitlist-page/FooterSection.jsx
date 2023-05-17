@@ -7,6 +7,8 @@ import { InstagramIcon } from '../../public/images/instagram';
 import { TwitterIcon } from '../../public/images/twitter';
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
+import {AiOutlineWhatsApp} from "react-icons/ai"
+import {RiWhatsappFill} from "react-icons/ri"
 const container = {
   hidden: {
     
@@ -15,7 +17,7 @@ const container = {
   show: {
     transition :{
       staggerChildren: 0.1,
-      delayChildren: 0.3,
+      delayChildren: 0.1,
     }
   }
 }
@@ -58,15 +60,23 @@ const FooterSection = () => {
                 <div className="mails flex lg:flex-row flex-col items-start lg:items-center gap-2">
                 <div className='flex gap-2  items-center'>
                     <AiFillMail />
-                    <p>admin@xcursions.ng</p>
+                    <p>hello@xcursions.ng</p>
                 </div>
                 <div className='flex gap-2 items-center'>
                     <AiFillMail />
-                    <p>xcursionsng@gmail.com</p>
+                    <p>bookings@xcursions.ng</p>
                 </div>
                 </div>
-                <div>
-                    <p>+234 816 827 7417</p>
+                <div className='flex gap-2 items-center'>
+                    <a href="tel:2348168277417">+234 816 827 7417</a>
+                    <a href={`https://shorturl.at/wFILV`} target="_blank">
+                        <RiWhatsappFill className="text-xl text-green-500" />
+
+                      {/* <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
+                       
+                      </div> */}
+
+                      </a>
                 </div>
 
           </div>
