@@ -18,6 +18,7 @@ const container = {
   },
 };
 const FooterSection = () => {
+  
   return (
     <footer
       // initial="hidden"
