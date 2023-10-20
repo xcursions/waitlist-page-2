@@ -1,21 +1,25 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { AiFillFacebook, AiOutlineClose, AiOutlineTwitter, AiOutlineWhatsApp } from "react-icons/ai";
+import {
+  AiFillFacebook,
+  AiOutlineClose,
+  AiOutlineTwitter,
+  AiOutlineWhatsApp,
+} from "react-icons/ai";
 
 import { TwitterIcon } from "../../public/images/twitter";
 import Link from "next/link";
-export default function WaitListModal({ isOpen, email, setIsOpen }) {
+export default function WaitListModal({ isOpen, email, refId, setIsOpen }) {
   function closeModal() {
     setIsOpen(false);
   }
   const [buttonText, setButtonText] = useState("Copy");
-  const CopyLink = (text) =>{
-    navigator.clipboard.writeText(text)
+  const CopyLink = (text) => {
+    navigator.clipboard.writeText(text);
     setButtonText("Copied!"); // update button text to indicate copied
     setTimeout(() => setButtonText("Copy"), 3000); // change button text back to "Copy" after 3 seconds
-  }
-  const ShareUrl = "https://xcursions.ng/ref_email"
-
+  };
+  const ShareUrl = "https://xcursions.ng/ref_email";
 
   return (
     <>
@@ -63,48 +67,50 @@ export default function WaitListModal({ isOpen, email, setIsOpen }) {
                   </Dialog.Title>
                   <div className="mt-2 flex flex-col  items-center text-white">
                     <p className="text-center">
-                      {email} has been successfully added to the
-                      waitlist.
+                      {email} has been successfully added to the waitlist.
                     </p>
-                    <div className="w-full h-[2px] mb-6 mt-2 bg-white">
-
-                    </div>
+                    <div className="w-full h-[2px] mb-6 mt-2 bg-white"></div>
 
                     {/* <p>3,191 people are ahead of you</p> */}
                     <p>The more you share the sooner you&apos;ll get access</p>
                   </div>
 
                   <div className="mt-4 flex flex-col">
-                   <div className="flex justify-between gap-3 md:flex-row flex-col">
-                   <div className="bg-white break-words flex-1  p-2 rounded-md ">
-                      {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
-                      <p className="text-center text-sm break-words line-clamp-3">{`https://xcursions.ng/?ref_email=${email}`}</p>
-                    </div>
-                    
+                    <div className="flex justify-between gap-3 md:flex-row flex-col">
+                      <div className="bg-white break-words flex-1  p-2 rounded-md ">
+                        {/* <p className="text-center">Xcursions.ng/claim/{email}</p> */}
+                        <p className="text-center text-sm break-words line-clamp-3">{`https://xcursions.ng?ref_id=${refId}`}</p>
+                      </div>
+
                       <button
-                      onClick={() =>CopyLink(`https://xcursions.ng/ref_email=${email}`)}
-                       className="bg-white px-4 py-2 rounded-md">{buttonText}</button>
-                    
-                   </div>
+                        onClick={() =>
+                          CopyLink(`https://xcursions.ng?ref_id=${refId}`)
+                        }
+                        className="bg-white px-4 py-2 rounded-md"
+                      >
+                        {buttonText}
+                      </button>
+                    </div>
 
                     <div className="my-3 flex flex-col  gap-3 md:flex-rwo justify-between">
-                      <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fxcursion.ng&text=I%20just%20joined%20Xcursion%20waitlist%2C%20you%20can%20also%20join%20using%20the%20link" target="_blank">
-                      <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
-                        <AiOutlineTwitter className="text-xl" />
-                        Twitter
-                      </div>
+                      <a
+                        href={`https://twitter.com/intent/tweet?url=https%3A%2F%2Fxcursion.ng%3Fref_id%3D${refId}&text=I%20just%20joined%20Xcursion%20waitlist%2C%20you%20can%20also%20join%20using%20the%20link`}
+                        target="_blank"
+                      >
+                        <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
+                          <AiOutlineTwitter className="text-xl" />
+                          Twitter
+                        </div>
                       </a>
-                      <a href={`whatsapp://send?text=I just joined Xcursion waitlist, you can also join using the link https://xcursions.ng/ref_email=${email}`} target="_blank">
-                      <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
-                        <AiOutlineWhatsApp className="text-xl" />
-                        Whatsapp
-                      </div>
-
+                      <a
+                        href={`whatsapp://send?text=I just joined Xcursion waitlist, you can also join using the link https://xcursions.ng/ref_id=${refId}`}
+                        target="_blank"
+                      >
+                        <div className="bg-white flex items-center gap-3 px-3 py-2 rounded-md">
+                          <AiOutlineWhatsApp className="text-xl" />
+                          Whatsapp
+                        </div>
                       </a>
-
-                     
-                     
-
                     </div>
                   </div>
                 </Dialog.Panel>

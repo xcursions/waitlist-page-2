@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Logo from "../../public/images/logo.png";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
-import { useFormFields, useMailChimpForm } from "use-mailchimp-form";
 import WaitListModal from "../modals/NewWaitlist";
-import Link from "next/link";
-import Carousel from "./Carousel";
 import MobileNav from "../modals/MobileNav";
 
 const container = {
@@ -20,48 +18,52 @@ const container = {
   },
 };
 
-const url = "https://xcursions.us21.list-manage.com/subscribe/post?u=ec111fee6499d391c81dd7914&amp;id=a539b502a7&amp;f_id=004286e1f0";
 const HeroSection = () => {
-
-  const {
-    loading,
-    error,
-    success,
-    message,
-    handleSubmit
-  } = useMailChimpForm(url);
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const [emailValue, setEmailValue] = useState("");
-  const [emailEmpty, setEmailEmpty] = useState(false);
-   const[toggleNav, setToggleNav] = useState(false)
-  const [photo, setPhoto] = useState(1);
-  function openModal() {
-    if (emailValue === "") {
-      setEmailEmpty(true);
-    } else {
-      setIsOpen(true);
-      setEmailEmpty(false);
-    }
-  }
+  const [toggleNav, setToggleNav] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
 
-  const { fields, handleFieldChange } = useFormFields({
-    EMAIL: "",
-  });
+  const postData = async () => {
+    try {
+      const response = await fetch(
+        "https://backend.xcursions.ng/api/v1/referral/mail/mailchimp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: searchParams?.get("ref_id")
+            ? JSON.stringify({
+                email: emailValue,
+                refId: searchParams?.get("ref_id"),
+              })
+            : JSON.stringify({ email: emailValue }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setResponseMessage(data?.id);
+        setIsOpen(true);
+      } else {
+        const data = await response.json();
+        alert(data?.meta?.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle network or other errors here
+    }
+  };
 
   const handleChange = (e) => {
     setEmailValue(e.target.value);
-    setEmailEmpty(false);
   };
-
-  // xl:bg-none
-  //     lg:bg-hero-1
-  //     bg-hero-mobile
-  // bg-[url('https://res.cloudinary.com/waleszn/image/upload/v1683438649/hero-mobile_wwzvet.png')]
   return (
     <motion.section
       initial="hidden"
-    viewport={{ once: true }}
-
+      viewport={{ once: true }}
       whileInView={"show"}
       variants={container}
       className={`
@@ -88,15 +90,12 @@ const HeroSection = () => {
           </div>
 
           <ul className="text-white hidden justify-center md:flex gap-7 items-center">
-          <li className="hover:border-b-2 border-brand-blue">
+            <li className="hover:border-b-2 border-brand-blue">
               <a href="#about-section">About Us</a>
             </li>
             <li className="hover:border-b-2 border-brand-blue">
               <a href="#faq-section">FAQs</a>
-              
             </li>
-
-            
           </ul>
 
           <div className="md:inline-block hidden">
@@ -105,12 +104,20 @@ const HeroSection = () => {
             </button>
           </div>
 
-          <div onClick={() => setToggleNav(!toggleNav)} className="md:hidden duration-300 cursor-pointer inline-block">
-            {toggleNav ? <AiOutlineClose className="text-white text-4xl" /> : <AiOutlineMenu className="text-white text-4xl" />}
+          <div
+            onClick={() => setToggleNav(!toggleNav)}
+            className="md:hidden duration-300 cursor-pointer inline-block"
+          >
+            {toggleNav ? (
+              <AiOutlineClose className="text-white text-4xl" />
+            ) : (
+              <AiOutlineMenu className="text-white text-4xl" />
+            )}
           </div>
 
-          {toggleNav && <MobileNav toggleNav={toggleNav} setToggleNav={setToggleNav} />}
-
+          {toggleNav && (
+            <MobileNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
+          )}
         </nav>
 
         <div className="mt-[180px]">
@@ -137,14 +144,11 @@ const HeroSection = () => {
           </h4>
           <div className="max-w-3xl">
             <form
-            className="flex md:flex-row items-center flex-col gap-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit(fields);
-              if(!loading  && fields.EMAIL.length > 0){
-                setIsOpen(true)
-              }
-            }}
+              className="flex md:flex-row items-center flex-col gap-3"
+              onSubmit={(e) => {
+                e.preventDefault();
+                postData();
+              }}
             >
               <input
                 className="w-full py-3 rounded-md px-2"
@@ -152,25 +156,25 @@ const HeroSection = () => {
                 name=""
                 id="EMAIL"
                 placeholder="Enter email address"
-                value={fields.EMAIL}
-          onChange={handleFieldChange}
+                value={emailValue}
+                onChange={handleChange}
               />
-            <button
-            // type="submit"
-              className="bg-brand-blue  md:w-2/5 text-white px-7 rounded-md py-3 text-center"
-            >
-              {loading ? "Loading" : "Join Waitlist"}
-            </button>
+              <button
+                // type="submit"
+                className="bg-brand-blue  md:w-2/5 text-white px-7 rounded-md py-3 text-center"
+              >
+                Join Waitlist
+              </button>
             </form>
-        
           </div>
-         
-          
-          {error && <div className="text-white">{message}</div>}
-          
         </div>
       </div>
-      <WaitListModal email={fields.EMAIL} isOpen={isOpen} setIsOpen={setIsOpen} />
+      <WaitListModal
+        email={emailValue}
+        refId={responseMessage}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
     </motion.section>
   );
 };
