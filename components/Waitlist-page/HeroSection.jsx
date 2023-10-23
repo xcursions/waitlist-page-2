@@ -49,7 +49,8 @@ const HeroSection = () => {
         setIsOpen(true);
       } else {
         const data = await response.json();
-        alert(data?.meta?.message);
+        setResponseMessage(data?.data?.id);
+        setIsOpen(true);
       }
     } catch (error) {
       console.error("Error:", error);
